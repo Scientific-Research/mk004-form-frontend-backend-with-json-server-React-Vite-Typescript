@@ -1,6 +1,6 @@
-- .. make "Save" button
-- install json-server
-- create db.json
+- x make "Save" button
+- x install json-server
+- .. create db.json
   - fill with 2 jobs
 - test with React Client
   - test get
