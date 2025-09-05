@@ -13,8 +13,10 @@ function App() {
   const [inputTextarea, setInputTextarea] = useState('');
 
   const _formData = {
-    jobTitle: 'type job here!',
-    description: 'type description here!',
+    jobTitle: '',
+    // jobTitle: 'type job here!',
+    description: '',
+    // description: 'type description here!',
   };
 
   const [formData, setFormData] = useState(_formData);
@@ -22,15 +24,26 @@ function App() {
   const handleInputText = (e: any, fieldName: string) => {
     const value = e.target.value;
 
+    // First Solution with Only one State Variable => formData
     formData.jobTitle = value;
-    setInputText(value);
+    setFormData(formData); // This will not work - we need a copy using Spread Operator! - because State Varibale are immutable(unchangeable!)
+    setFormData({ ...formData });
+
+    // Second Solution with a new State Variable => inputText
+    // formData.jobTitle = value;
+    // setInputText(value);
   };
 
   const handleInputTextarea = (e: any) => {
     const value = e.target.value;
 
+    // First Solution with Only one State Variable => formData
     formData.description = value;
-    setInputTextarea(e.target.value);
+    setFormData({ ...formData });
+
+    // Second Solution with a new State Variable => inputTextarea
+    // formData.description = value;
+    // setInputTextarea(value);
   };
 
   return (
@@ -46,8 +59,8 @@ function App() {
               <div>
                 <input
                   type="text"
-                  // value={formData.jobTitle}
-                  value={inputText}
+                  value={formData.jobTitle}
+                  // value={inputText}
                   placeholder="type job here!"
                   onChange={(e: any) => handleInputText(e, 'jobTitle')}
                 />
@@ -58,8 +71,8 @@ function App() {
               <label>Description</label>
               <div>
                 <textarea
-                  // value={formData.description}
-                  value={inputTextarea}
+                  value={formData.description}
+                  // value={inputTextarea}
                   placeholder="type description here!"
                   onChange={(e) => handleInputTextarea(e)}
                 />
