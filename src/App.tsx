@@ -9,6 +9,7 @@ import { useState } from 'react';
 
 function App() {
   // const [inputText, setInputText] = useState(_formData.jobTitle);
+  // We can use these two below extra state variables to do the same, but the formData state variable is enough!
   const [inputText, setInputText] = useState('');
   const [inputTextarea, setInputTextarea] = useState('');
 
@@ -21,29 +22,15 @@ function App() {
 
   const [formData, setFormData] = useState(_formData);
 
-  const handleInputText = (e: any, fieldName: string) => {
+  const applicationInputData = (e: any, fieldName: any) => {
     const value = e.target.value;
 
-    // First Solution with Only one State Variable => formData
-    formData.jobTitle = value;
-    setFormData(formData); // This will not work - we need a copy using Spread Operator! - because State Varibale are immutable(unchangeable!)
+    if (fieldName === 'jobTitle') {
+      formData.jobTitle = value;
+    } else {
+      formData.description = value;
+    }
     setFormData({ ...formData });
-
-    // Second Solution with a new State Variable => inputText
-    // formData.jobTitle = value;
-    // setInputText(value);
-  };
-
-  const handleInputTextarea = (e: any) => {
-    const value = e.target.value;
-
-    // First Solution with Only one State Variable => formData
-    formData.description = value;
-    setFormData({ ...formData });
-
-    // Second Solution with a new State Variable => inputTextarea
-    // formData.description = value;
-    // setInputTextarea(value);
   };
 
   return (
@@ -62,7 +49,7 @@ function App() {
                   value={formData.jobTitle}
                   // value={inputText}
                   placeholder="type job here!"
-                  onChange={(e: any) => handleInputText(e, 'jobTitle')}
+                  onChange={(e) => applicationInputData(e, 'jobTitle')}
                 />
               </div>
             </div>
@@ -74,7 +61,7 @@ function App() {
                   value={formData.description}
                   // value={inputTextarea}
                   placeholder="type description here!"
-                  onChange={(e) => handleInputTextarea(e)}
+                  onChange={(e) => applicationInputData(e, 'description')}
                 />
               </div>
             </div>
