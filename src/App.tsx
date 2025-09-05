@@ -3,11 +3,19 @@
 import { useState } from 'react';
 
 const _formData = {
-  jobTitle: '',
-  description: '',
+  jobTitle: 'type job here!',
+  description: 'type description here!',
 };
 
 function App() {
+  // const [inputText, setInputText] = useState(_formData.jobTitle);
+  const [inputText, setInputText] = useState('');
+
+  const handleInputText = (e: any) => {
+    // console.log(e.target.value);
+    setInputText(e.target.value);
+  };
+
   const [formData, setFormData] = useState(_formData);
 
   return (
@@ -21,14 +29,19 @@ function App() {
             <div className="row">
               <label>Job Title</label>
               <div>
-                <input type="text" />
+                <input
+                  type="text"
+                  // value={formData.jobTitle}
+                  value={inputText}
+                  onChange={(e) => handleInputText(e)}
+                />
               </div>
             </div>
 
             <div className="row">
               <label>Description</label>
               <div>
-                <textarea />
+                <textarea value={formData.description} />
               </div>
             </div>
           </fieldset>
