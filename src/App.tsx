@@ -1,6 +1,7 @@
 // import './App.css';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 // const _formData = {
 //   jobTitle: 'type job here!',
@@ -21,6 +22,16 @@ function App() {
   };
 
   const [formData, setFormData] = useState(_formData);
+
+  // use useEffect() to get the list of Books:
+  // Arrow function => IIFE => useEffect
+  useEffect(() => {
+    (async () => {
+      const response = await axios('http://localhost:5556/jobs');
+      const Jobs = response.data;
+      console.log(Jobs);
+    })();
+  }, []);
 
   const applicationInputData = (e: any, fieldName: any) => {
     const value = e.target.value;
@@ -70,6 +81,8 @@ function App() {
             </div>
           </fieldset>
         </form>
+
+        <div className="currentJobs">show Jobs</div>
 
         <div className="debuggingArea">
           <pre>{JSON.stringify(formData, null, 2)}</pre>
