@@ -10,10 +10,15 @@ const _formData = {
 function App() {
   // const [inputText, setInputText] = useState(_formData.jobTitle);
   const [inputText, setInputText] = useState('');
+  const [inputTextarea, setInputTextarea] = useState('');
 
   const handleInputText = (e: any) => {
     // console.log(e.target.value);
     setInputText(e.target.value);
+  };
+
+  const handleInputTextarea = (e: any) => {
+    setInputTextarea(e.target.value);
   };
 
   const [formData, setFormData] = useState(_formData);
@@ -41,7 +46,11 @@ function App() {
             <div className="row">
               <label>Description</label>
               <div>
-                <textarea value={formData.description} />
+                <textarea
+                  // value={formData.description}
+                  value={inputTextarea}
+                  onChange={handleInputTextarea}
+                />
               </div>
             </div>
           </fieldset>
