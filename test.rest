@@ -1,0 +1,11 @@
+@url = http://localhost:5556
+
+### GET JOBS 
+{{url}}/jobs
+
+# ### ADD JOBS POST 
+# {{url}}/jobs content-type:application
+
+# {
+#   "jobTitle":"nnnnn"
+# }
