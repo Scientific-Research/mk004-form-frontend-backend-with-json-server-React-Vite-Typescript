@@ -13,29 +13,24 @@ function App() {
   const [inputTextarea, setInputTextarea] = useState('');
 
   const _formData = {
-    jobTitle: inputText,
-    description: inputTextarea,
+    jobTitle: 'type job here!',
+    description: 'type description here!',
   };
 
   const [formData, setFormData] = useState(_formData);
 
   const handleInputText = (e: any, fieldName: string) => {
-    // console.log(e.target.value);
-    // 'jobTitle:' setInputText(e.target.value);
-    // fieldName: setInputText(e.target.value);
-    // `${fieldName}: ${setInputText(e.target?.value)}`;
-    // setFormData(e.target.value);
+    const value = e.target.value;
 
-    // fieldName: setInputText(e.target.value);
-    // setInputText(e.target.value);
-
-    formData.jobTitle = e.target.value;
-    setInputText(e.target.value);
+    formData.jobTitle = value;
+    setInputText(value);
   };
 
   const handleInputTextarea = (e: any) => {
+    const value = e.target.value;
+
+    formData.description = value;
     setInputTextarea(e.target.value);
-    // setFormData(e.target.value);
   };
 
   return (
@@ -53,6 +48,7 @@ function App() {
                   type="text"
                   // value={formData.jobTitle}
                   value={inputText}
+                  placeholder="type job here!"
                   onChange={(e: any) => handleInputText(e, 'jobTitle')}
                 />
               </div>
@@ -64,6 +60,7 @@ function App() {
                 <textarea
                   // value={formData.description}
                   value={inputTextarea}
+                  placeholder="type description here!"
                   onChange={(e) => handleInputTextarea(e)}
                 />
               </div>
