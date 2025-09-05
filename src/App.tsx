@@ -65,6 +65,9 @@ function App() {
                 />
               </div>
             </div>
+            <div className="buttonRow">
+              <button>Save</button>
+            </div>
           </fieldset>
         </form>
 
