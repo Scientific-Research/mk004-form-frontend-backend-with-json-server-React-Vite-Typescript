@@ -35,7 +35,8 @@ function App() {
         </form>
 
         <div className="debuggingArea">
-          <pre>{JSON.stringify(formData)}</pre>
+          {/* {JSON.stringify(formData, null, 2)} */}
+          <pre>{JSON.stringify(formData, null, 2)}</pre>
         </div>
       </section>
     </div>
