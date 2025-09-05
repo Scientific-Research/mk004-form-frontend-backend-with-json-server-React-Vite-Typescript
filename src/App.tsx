@@ -8,6 +8,12 @@ import axios from 'axios';
 //   description: 'type description here!',
 // };
 
+interface IJobs {
+  jobTitle: string;
+  description: string;
+  id: string;
+}
+
 const backendURL = 'http://localhost:5556';
 
 function App() {
@@ -24,14 +30,16 @@ function App() {
   };
 
   const [formData, setFormData] = useState(_formData);
+  const [jobs, setJobs] = useState([]);
 
   // use useEffect() to get the list of Books:
   // Arrow function => IIFE => useEffect
   useEffect(() => {
     (async () => {
       const response = await axios(`${backendURL}/jobs`);
-      const Jobs = response.data;
-      console.log(Jobs);
+      const _Jobs = response.data;
+      console.log(_Jobs);
+      setJobs(_Jobs);
     })();
   }, []);
 
@@ -84,7 +92,14 @@ function App() {
           </fieldset>
         </form>
 
-        <div className="currentJobs">show Jobs</div>
+        <div className="currentJobs">
+          {jobs.map((job: IJobs) => (
+            <div className="job" key={job.id}>
+              <p>{job.jobTitle}</p>
+              <p>{job.description}</p>
+            </div>
+          ))}
+        </div>
 
         <div className="debuggingArea">
           <pre>{JSON.stringify(formData, null, 2)}</pre>
