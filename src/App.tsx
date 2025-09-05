@@ -8,6 +8,8 @@ import axios from 'axios';
 //   description: 'type description here!',
 // };
 
+const backendURL = 'http://localhost:5556';
+
 function App() {
   // const [inputText, setInputText] = useState(_formData.jobTitle);
   // We can use these two below extra state variables to do the same, but the formData state variable is enough!
@@ -27,7 +29,7 @@ function App() {
   // Arrow function => IIFE => useEffect
   useEffect(() => {
     (async () => {
-      const response = await axios('http://localhost:5556/jobs');
+      const response = await axios(`${backendURL}/jobs`);
       const Jobs = response.data;
       console.log(Jobs);
     })();
