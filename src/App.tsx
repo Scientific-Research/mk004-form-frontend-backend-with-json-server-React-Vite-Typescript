@@ -32,6 +32,13 @@ function App() {
   const [formData, setFormData] = useState(_formData);
   const [jobs, setJobs] = useState<IJobs[]>([]);
 
+  const clearInputFields = () => {
+    // remove/clear the data from input fields:
+    formData.jobTitle = '';
+    formData.description = '';
+    window.location.reload();
+  };
+
   // use useEffect() to get the list of Books:
   // Arrow function => IIFE => useEffect
   useEffect(() => {
@@ -65,9 +72,11 @@ function App() {
     e.preventDefault();
     // To save the data in json-server, we have to do a POST command:
     // IIFE is a function without a name:
+    let response = '';
     (async () => {
-      const response = await axios.post(`${backendURL}/jobs`, formData);
+      response = await axios.post(`${backendURL}/jobs`, formData);
       console.log(response);
+      clearInputFields();
     })();
   };
 
