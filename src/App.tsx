@@ -97,7 +97,7 @@ function App() {
           {jobs.map((job) => (
             <div className="job" key={job.id}>
               <p>{job.jobTitle}</p>
-              <p>{job.description}</p>
+              {/* <p>{job.description}</p> */}
             </div>
           ))}
         </div>

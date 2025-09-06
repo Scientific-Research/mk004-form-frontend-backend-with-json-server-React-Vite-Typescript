@@ -1,11 +1,13 @@
 @url = http://localhost:5556
 
 ### GET JOBS 
-{{url}}/jobs
+GET {{url}}/jobs
 
-# ### ADD JOBS POST 
-# {{url}}/jobs content-type:application
+### ADD JOBS POST 
+POST {{url}}/jobs 
+content-type:application/json 
 
-# {
-#   "jobTitle":"nnnnn"
-# }
+{
+    "jobTitle": "Vue Developer",
+    "description": "Requires vue.js skills!"
+}

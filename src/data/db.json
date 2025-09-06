@@ -9,6 +9,11 @@
       "id": 2,
       "jobTitle": "Angular Developer",
       "description": "This job is with Angular!"
+    },
+    {
+      "id": 3,
+      "jobTitle": "Vue.js Developer",
+      "description": "Requires vue.js skills!"
     }
   ]
 }
