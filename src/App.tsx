@@ -43,7 +43,12 @@ function App() {
     })();
   }, []);
 
-  const applicationInputData = (e: any, fieldName: any) => {
+  const applicationInputData = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>,
+    fieldName: string
+  ) => {
     const value = e.target.value;
 
     if (fieldName === 'jobTitle') {
@@ -52,6 +57,13 @@ function App() {
       formData.description = value;
     }
     setFormData({ ...formData });
+  };
+
+  const handleSaveForm = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    console.log('first');
   };
 
   return (
@@ -87,7 +99,7 @@ function App() {
               </div>
             </div>
             <div className="buttonRow">
-              <button>Save</button>
+              <button onClick={(e) => handleSaveForm(e)}>Save</button>
             </div>
           </fieldset>
         </form>
