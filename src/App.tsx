@@ -75,13 +75,11 @@ function App() {
     e:
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
-      | React.ChangeEvent<HTMLSelectElement>
-      | any,
-    // | React.MouseEvent<HTMLInputElement, MouseEvent>,
+      | React.ChangeEvent<HTMLSelectElement>,
     fieldName: string
   ) => {
     const value = e.target.value;
-    const checked = e.target.checked;
+    const checked = (e.target as HTMLInputElement).checked;
 
     if (fieldName === 'jobTitle') {
       formData.jobTitle = value;
