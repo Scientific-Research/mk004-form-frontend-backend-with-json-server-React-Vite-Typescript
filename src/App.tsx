@@ -149,6 +149,21 @@ function App() {
               </select>
             </div>
 
+            <div className="row">
+              <label>Details</label>
+              <div>
+                <div>
+                  <input type="checkbox" /> remote
+                </div>
+                <div>
+                  <input type="checkbox" /> full-time
+                </div>
+                <div>
+                  <input type="checkbox" /> large company
+                </div>
+              </div>
+            </div>
+
             <div className="buttonRow">
               <button onClick={(e) => handleSaveForm(e)}>Save</button>
             </div>

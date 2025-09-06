@@ -67,7 +67,7 @@ body {
         }
       }
 
-      input {
+      input[type='text'] {
         padding: 0.5em;
         border: 1px solid #999;
         width: 96%;
