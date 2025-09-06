@@ -61,24 +61,19 @@ function App() {
   const applicationInputData = (
     e:
       | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLTextAreaElement>,
+      | React.ChangeEvent<HTMLTextAreaElement>
+      | React.ChangeEvent<HTMLSelectElement>,
     fieldName: string
   ) => {
     const value = e.target.value;
 
     if (fieldName === 'jobTitle') {
       formData.jobTitle = value;
-    } else {
+    } else if (fieldName === 'description') {
       formData.description = value;
+    } else if (fieldName === 'city') {
+      formData.city = value;
     }
-    setFormData({ ...formData });
-  };
-
-  const handleSelectCity = (e: any, cityName: string) => {
-    const value = e.target.value;
-    console.log(value);
-
-    formData.city = value;
     setFormData({ ...formData });
   };
 
@@ -141,10 +136,12 @@ function App() {
             <div className="row">
               <label>City</label>
               <select
+                value={formData.city}
                 name=""
                 id=""
-                onChange={(e) => handleSelectCity(e, 'city')}
+                onChange={(e) => applicationInputData(e, 'city')}
               >
+                <option value="">please choose</option>
                 <option value="hamburg">Hamburg</option>
                 <option value="berlin">Berlin</option>
                 <option value="dresden">Dresden</option>
