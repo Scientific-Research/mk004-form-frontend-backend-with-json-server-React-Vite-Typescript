@@ -9,7 +9,7 @@ import axios from 'axios';
 // };
 
 interface IJobs {
-  id: number;
+  id: string;
   jobTitle: string;
   description: string;
 }
@@ -63,7 +63,12 @@ function App() {
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    console.log('first');
+    // To save the data in json-server, we have to do a POST command:
+    // IIFE is a function without a name:
+    (async () => {
+      const response = await axios.post(`${backendURL}/jobs`, formData);
+      console.log(response);
+    })();
   };
 
   return (
