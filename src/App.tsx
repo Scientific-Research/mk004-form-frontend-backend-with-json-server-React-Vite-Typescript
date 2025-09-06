@@ -82,7 +82,13 @@ function App() {
     const checked = (e.target as HTMLInputElement).checked;
 
     if (fieldName === 'jobTitle') {
-      formData.jobTitle = value;
+      if (value === '/brr') {
+        formData.jobTitle = 'React Developer';
+        formData.city = 'dresden';
+        formData.details.remote = true;
+      } else {
+        formData.jobTitle = value;
+      }
     } else if (fieldName === 'description') {
       formData.description = value;
     } else if (fieldName === 'city') {
