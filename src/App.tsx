@@ -28,8 +28,8 @@ const backendURL = 'http://localhost:5556';
 function App() {
   // const [inputText, setInputText] = useState(_formData.jobTitle);
   // We can use these two below extra state variables to do the same, but the formData state variable is enough!
-  const [inputText, setInputText] = useState('');
-  const [inputTextarea, setInputTextarea] = useState('');
+  // const [inputText, setInputText] = useState('');
+  // const [inputTextarea, setInputTextarea] = useState('');
 
   const [formData, setFormData] = useState(_formData);
   const [jobs, setJobs] = useState<IJobs[]>([]);
@@ -71,6 +71,14 @@ function App() {
     } else {
       formData.description = value;
     }
+    setFormData({ ...formData });
+  };
+
+  const handleSelectCity = (e: any, cityName: string) => {
+    const value = e.target.value;
+    console.log(value);
+
+    formData.city = value;
     setFormData({ ...formData });
   };
 
@@ -132,7 +140,11 @@ function App() {
 
             <div className="row">
               <label>Description</label>
-              <select name="" id="">
+              <select
+                name=""
+                id=""
+                onChange={(e) => handleSelectCity(e, 'city')}
+              >
                 <option value="hamburg">Hamburg</option>
                 <option value="berlin">Berlin</option>
                 <option value="dresden">Dresden</option>
