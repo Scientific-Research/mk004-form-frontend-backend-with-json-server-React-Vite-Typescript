@@ -34,9 +34,15 @@ function App() {
 
   const clearInputFields = () => {
     // remove/clear the data from input fields:
+
+    // First Solution
     formData.jobTitle = '';
     formData.description = '';
     window.location.reload();
+
+    // Second Solution
+    // setFormData(_formData);
+    // window.location.reload();
   };
 
   // use useEffect() to get the list of Books:
