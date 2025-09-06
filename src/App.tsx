@@ -86,6 +86,10 @@ function App() {
     })();
   };
 
+  const handleDeleteJob = (job: IJobs) => {
+    console.log(job);
+  };
+
   return (
     <div className="App">
       <h1>Form-frontend-backend-with-json-server-Reatc-Vite-Typescript</h1>
@@ -129,7 +133,11 @@ function App() {
           {jobs.map((job) => (
             <div className="job" key={job.id}>
               <p className="title">
-                {job.jobTitle} (<span className="delete">delete</span>)
+                {job.jobTitle} (
+                <span className="delete" onClick={() => handleDeleteJob(job)}>
+                  delete
+                </span>
+                )
               </p>
               {/* <p>{job.description}</p> */}
             </div>
