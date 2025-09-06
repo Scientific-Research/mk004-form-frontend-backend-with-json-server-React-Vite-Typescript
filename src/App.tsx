@@ -128,7 +128,9 @@ function App() {
           <h2>There are {jobs.length} jobs:</h2>
           {jobs.map((job) => (
             <div className="job" key={job.id}>
-              <p>{job.jobTitle}</p>
+              <p className="title">
+                {job.jobTitle} (<span className="delete">delete</span>)
+              </p>
               {/* <p>{job.description}</p> */}
             </div>
           ))}

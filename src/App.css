@@ -19,6 +19,17 @@ body {
     font-size: 1.3rem;
   }
 
+  .currentJobs {
+    .job {
+      .title {
+        .delete {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
   form {
     fieldset {
       margin: 2em 2em 2em 0;
