@@ -75,7 +75,9 @@ function App() {
     e:
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
-      | React.ChangeEvent<HTMLSelectElement>,
+      | React.ChangeEvent<HTMLSelectElement>
+      | any,
+    // | React.MouseEvent<HTMLInputElement, MouseEvent>,
     fieldName: string
   ) => {
     const value = e.target.value;
@@ -86,6 +88,12 @@ function App() {
       formData.description = value;
     } else if (fieldName === 'city') {
       formData.city = value;
+    } else if (fieldName === 'remote') {
+      formData.details.remote = value === 'on' ? true : false;
+    } else if (fieldName === 'fullTime') {
+      formData.details.fullTime = value;
+    } else if (fieldName === 'largeCompany') {
+      formData.details.largeCompany = value;
     }
     setFormData({ ...formData });
   };
@@ -166,16 +174,25 @@ function App() {
               <label>Details</label>
               <div>
                 <div>
-                  <input type="checkbox" checked={formData.details.remote} />{' '}
+                  <input
+                    type="checkbox"
+                    onClick={(e) => applicationInputData(e, 'remote')}
+                    checked={formData.details.remote}
+                  />{' '}
                   remote
                 </div>
                 <div>
-                  <input type="checkbox" checked={formData.details.fullTime} />{' '}
+                  <input
+                    type="checkbox"
+                    onClick={(e) => applicationInputData(e, 'fullTime')}
+                    checked={formData.details.fullTime}
+                  />{' '}
                   full-time
                 </div>
                 <div>
                   <input
                     type="checkbox"
+                    onClick={(e) => applicationInputData(e, 'largeCompany')}
                     checked={formData.details.largeCompany}
                   />{' '}
                   large company
