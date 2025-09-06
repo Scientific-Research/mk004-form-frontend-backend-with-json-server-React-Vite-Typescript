@@ -139,7 +139,7 @@ function App() {
             </div>
 
             <div className="row">
-              <label>Description</label>
+              <label>City</label>
               <select
                 name=""
                 id=""

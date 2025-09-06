@@ -55,6 +55,14 @@ body {
         }
       }
 
+      .row {
+        margin-top: 1rem;
+
+        &:nth-of-type(1) {
+          margin-top: 0;
+        }
+      }
+
       input {
         padding: 0.5em;
         border: 1px solid #999;
