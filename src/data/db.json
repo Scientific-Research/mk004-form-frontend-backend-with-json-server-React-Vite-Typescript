@@ -3,22 +3,32 @@
     {
       "id": "1",
       "jobTitle": "React Developer",
-      "description": "This is a good React job!"
+      "description": "This is a good React job!",
+      "city": "berlin"
     },
     {
       "id": "2",
       "jobTitle": "Angular Developer",
-      "description": "This job is with Angular!"
+      "description": "This job is with Angular!",
+      "city": "hamburg"
     },
     {
       "id": "3",
       "jobTitle": "Vue.js Developer",
-      "description": "Requires vue.js skills!"
+      "description": "Requires vue.js skills!",
+      "city": "leipzig"
     },
     {
       "id": "e9e4",
       "jobTitle": "PHP Developer",
-      "description": "PHP job!"
+      "description": "PHP job!",
+      "city": "berlin"
+    },
+    {
+      "id": "f1d3",
+      "jobTitle": "Kotlin Developer",
+      "description": "An interesting Job!",
+      "city": "dresden"
     }
   ]
 }
