@@ -13,6 +13,13 @@ interface IJobs {
   jobTitle: string;
   description: string;
   city: string;
+  details: IDetails;
+}
+
+interface IDetails {
+  remote: boolean;
+  fullTime: boolean;
+  largeCompany: boolean;
 }
 
 const _formData = {
@@ -21,6 +28,12 @@ const _formData = {
   description: '',
   // description: 'type description here!',
   city: '',
+
+  details: {
+    remote: false,
+    fullTime: false,
+    largeCompany: false,
+  },
 };
 
 const backendURL = 'http://localhost:5556';
@@ -153,13 +166,19 @@ function App() {
               <label>Details</label>
               <div>
                 <div>
-                  <input type="checkbox" /> remote
+                  <input type="checkbox" checked={formData.details.remote} />{' '}
+                  remote
                 </div>
                 <div>
-                  <input type="checkbox" /> full-time
+                  <input type="checkbox" checked={formData.details.fullTime} />{' '}
+                  full-time
                 </div>
                 <div>
-                  <input type="checkbox" /> large company
+                  <input
+                    type="checkbox"
+                    checked={formData.details.largeCompany}
+                  />{' '}
+                  large company
                 </div>
               </div>
             </div>
