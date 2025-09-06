@@ -81,6 +81,7 @@ function App() {
     fieldName: string
   ) => {
     const value = e.target.value;
+    const checked = e.target.checked;
 
     if (fieldName === 'jobTitle') {
       formData.jobTitle = value;
@@ -89,11 +90,11 @@ function App() {
     } else if (fieldName === 'city') {
       formData.city = value;
     } else if (fieldName === 'remote') {
-      formData.details.remote = value === 'on' ? true : false;
+      formData.details.remote = checked;
     } else if (fieldName === 'fullTime') {
-      formData.details.fullTime = value;
+      formData.details.fullTime = checked;
     } else if (fieldName === 'largeCompany') {
-      formData.details.largeCompany = value;
+      formData.details.largeCompany = checked;
     }
     setFormData({ ...formData });
   };
@@ -176,7 +177,7 @@ function App() {
                 <div>
                   <input
                     type="checkbox"
-                    onClick={(e) => applicationInputData(e, 'remote')}
+                    onChange={(e) => applicationInputData(e, 'remote')}
                     checked={formData.details.remote}
                   />{' '}
                   remote
@@ -184,7 +185,7 @@ function App() {
                 <div>
                   <input
                     type="checkbox"
-                    onClick={(e) => applicationInputData(e, 'fullTime')}
+                    onChange={(e) => applicationInputData(e, 'fullTime')}
                     checked={formData.details.fullTime}
                   />{' '}
                   full-time
@@ -192,7 +193,7 @@ function App() {
                 <div>
                   <input
                     type="checkbox"
-                    onClick={(e) => applicationInputData(e, 'largeCompany')}
+                    onChange={(e) => applicationInputData(e, 'largeCompany')}
                     checked={formData.details.largeCompany}
                   />{' '}
                   large company

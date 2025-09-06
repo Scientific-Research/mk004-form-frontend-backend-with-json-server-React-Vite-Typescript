@@ -29,6 +29,17 @@
       "jobTitle": "Kotlin Developer",
       "description": "An interesting Job!",
       "city": "dresden"
+    },
+    {
+      "id": "45fa",
+      "jobTitle": "Ruby on Rails Developer",
+      "description": "Very good Job!",
+      "city": "hamburg",
+      "details": {
+        "remote": true,
+        "fullTime": true,
+        "largeCompany": true
+      }
     }
   ]
 }
