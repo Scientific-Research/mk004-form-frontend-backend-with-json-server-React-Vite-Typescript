@@ -21,6 +21,7 @@ body {
 
   .currentJobs {
     .job {
+      margin-bottom: 0.5rem;
       .title {
         .delete {
           text-decoration: underline;

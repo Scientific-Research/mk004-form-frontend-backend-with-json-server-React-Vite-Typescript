@@ -78,16 +78,21 @@ function App() {
     e.preventDefault();
     // To save the data in json-server, we have to do a POST command:
     // IIFE is a function without a name:
-    let response = '';
     (async () => {
-      response = await axios.post(`${backendURL}/jobs`, formData);
+      const response = await axios.post(`${backendURL}/jobs`, formData);
       console.log(response);
       clearInputFields();
     })();
   };
 
-  const handleDeleteJob = (job: IJobs) => {
-    console.log(job);
+  const handleDeleteJob = async (job: IJobs) => {
+    // We don't need filter, we need axios and delete(job.id) to delete the job directly from Databank(db.json)
+    // const deletedJob = jobs.filter((j) => j.id !== job.id);
+    // setJobs(deletedJob);
+
+    const response = await axios.delete(`${backendURL}/jobs/${job.id}`);
+    console.log(response);
+    window.location.reload();
   };
 
   return (
