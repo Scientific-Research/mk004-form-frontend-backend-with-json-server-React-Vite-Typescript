@@ -9,10 +9,17 @@ import axios from 'axios';
 // };
 
 interface IJobs {
+  id: number;
   jobTitle: string;
   description: string;
-  id: string;
 }
+
+const _formData = {
+  jobTitle: '',
+  // jobTitle: 'type job here!',
+  description: '',
+  // description: 'type description here!',
+};
 
 const backendURL = 'http://localhost:5556';
 
@@ -22,15 +29,8 @@ function App() {
   const [inputText, setInputText] = useState('');
   const [inputTextarea, setInputTextarea] = useState('');
 
-  const _formData = {
-    jobTitle: '',
-    // jobTitle: 'type job here!',
-    description: '',
-    // description: 'type description here!',
-  };
-
   const [formData, setFormData] = useState(_formData);
-  const [jobs, setJobs] = useState([]);
+  const [jobs, setJobs] = useState<IJobs[]>([]);
 
   // use useEffect() to get the list of Books:
   // Arrow function => IIFE => useEffect
@@ -93,7 +93,8 @@ function App() {
         </form>
 
         <div className="currentJobs">
-          {jobs.map((job: IJobs) => (
+          <h2>There are {jobs.length} jobs:</h2>
+          {jobs.map((job) => (
             <div className="job" key={job.id}>
               <p>{job.jobTitle}</p>
               <p>{job.description}</p>
